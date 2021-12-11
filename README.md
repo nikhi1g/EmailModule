@@ -18,3 +18,6 @@ https://myaccount.google.com/u/8/lesssecureapps?pli=1&rapt=AEjHL4NJd3IiGHuBFb0-d
 
 
 `Look here for Initial Sources:` [Reading Emails with Python](https://www.thepythoncode.com/article/reading-emails-in-python)
+[imaplib — IMAP4 protocol client](https://docs.python.org/3/library/imaplib.html)
+[email — An email and MIME handling package](https://docs.python.org/3/library/email.html)
+[webbrowser — Web-browser controller](https://docs.python.org/3/library/webbrowser.html)
