@@ -17,4 +17,4 @@ checkforEmail(username, password, targetbody, responsesubject, responsebody, boo
 https://myaccount.google.com/u/8/lesssecureapps?pli=1&rapt=AEjHL4NJd3IiGHuBFb0-dA_SOEtAbQo-JG-RIlsW3m0LQ2gX1952HXuv30AefeBbmc6xbNzXqWPZJerqo8a3fkPtTIxu-5dl9A
 
 
-`Look here for Initial Sources: ` See [Reading Emails with Python](https://www.thepythoncode.com/article/reading-emails-in-python)
+`Look here for Initial Sources:` [Reading Emails with Python](https://www.thepythoncode.com/article/reading-emails-in-python)
