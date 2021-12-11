@@ -17,7 +17,7 @@ checkforEmail(username, password, targetbody, responsesubject, responsebody, boo
 https://myaccount.google.com/u/8/lesssecureapps?pli=1&rapt=AEjHL4NJd3IiGHuBFb0-dA_SOEtAbQo-JG-RIlsW3m0LQ2gX1952HXuv30AefeBbmc6xbNzXqWPZJerqo8a3fkPtTIxu-5dl9A
 
 
-`Look here for Initial Sources:` [Reading Emails with Python](https://www.thepythoncode.com/article/reading-emails-in-python)
-[imaplib — IMAP4 protocol client](https://docs.python.org/3/library/imaplib.html)
-[email — An email and MIME handling package](https://docs.python.org/3/library/email.html)
+`Look here for Initial Sources:` [Reading Emails with Python](https://www.thepythoncode.com/article/reading-emails-in-python) | 
+[imaplib — IMAP4 protocol client](https://docs.python.org/3/library/imaplib.html) | 
+[email — An email and MIME handling package](https://docs.python.org/3/library/email.html) | 
 [webbrowser — Web-browser controller](https://docs.python.org/3/library/webbrowser.html)
