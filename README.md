@@ -15,3 +15,6 @@ checkforEmail(username, password, targetbody, responsesubject, responsebody, boo
 
 > I reccommend that you use an entirely new gmail account as you need to:
 https://myaccount.google.com/u/8/lesssecureapps?pli=1&rapt=AEjHL4NJd3IiGHuBFb0-dA_SOEtAbQo-JG-RIlsW3m0LQ2gX1952HXuv30AefeBbmc6xbNzXqWPZJerqo8a3fkPtTIxu-5dl9A
+
+
+`I take no credit for the working code behind Get and Send Email. All I have done is make a checking function, returned the first email information as an array, and other changes for easier compatibility. See https://www.thepythoncode.com/article/reading-emails-in-python`
