@@ -1,5 +1,6 @@
 import imaplib
 import email
+import random
 from email.header import decode_header
 import webbrowser
 import os
@@ -7,16 +8,28 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from bs4 import BeautifulSoup as bs
-
+from threading import Thread
 
 class Email:
 
+    temp_subject = " "
     def __init__(self, username, password):
         self.username = username
         self.password = password
 
     def get_info(self):
         return self.username, self.password
+
+    def checkForEmail(self, target_body=None, response_subject=None, response_body=None, returnable = False):
+        current_mail = self.getMail()
+        sender = current_mail[0]
+        sender_subject = current_mail[1]
+        sender_body = current_mail[2]
+
+        if target_body in sender_body.lower() and sender_subject.lower() != self.temp_subject and not returnable:
+            self.sendMail(sender, response_subject, response_body)
+            self.sendMail(self.username, response_subject + str(random.random()), response_body)
+            self.temp_subject = sender_subject.lower()
 
     def sendMail(self, TO, subject, body):
         FROM = self.username
@@ -121,4 +134,6 @@ class Email:
         imap.close()
         imap.logout()
         return mailArray
+
+
 
