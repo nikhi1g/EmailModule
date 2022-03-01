@@ -1,3 +1,4 @@
+import datetime
 import imaplib
 import email
 import random
@@ -7,12 +8,15 @@ import os
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+
 from bs4 import BeautifulSoup as bs
 from threading import Thread
+import time
+
 
 class Email:
-
     temp_subject = " "
+    providers = ['@txt.att.net', '@tmomail.net', '@vtext.com']
     def __init__(self, username, password):
         self.username = username
         self.password = password
@@ -20,16 +24,19 @@ class Email:
     def get_info(self):
         return self.username, self.password
 
-    def checkForEmail(self, target_body=None, response_subject=None, response_body=None, returnable = False):
+    def checkForEmail(self, target_body=None, response_subject=None, response_body=None, returnable=False):
         current_mail = self.getMail()
         sender = current_mail[0]
         sender_subject = current_mail[1]
         sender_body = current_mail[2]
 
-        if target_body in sender_body.lower() and sender_subject.lower() != self.temp_subject and not returnable:
-            self.sendMail(sender, response_subject, response_body)
-            self.sendMail(self.username, response_subject + str(random.random()), response_body)
-            self.temp_subject = sender_subject.lower()
+        if target_body in sender_body.lower() and sender_subject.lower() != self.temp_subject:
+            if returnable:
+                return True
+            else:
+                self.sendMail(sender, response_subject, response_body)
+                self.sendMail(self.username, response_subject + str(random.random()), response_body)
+                self.temp_subject = sender_subject.lower()
 
     def sendMail(self, TO, subject, body):
         FROM = self.username
@@ -100,7 +107,7 @@ class Email:
 
                         mailArray.append(subject)
                     except Exception as e:
-                        print(e)
+                        pass
                     # if the email message is multipart
                     if msg.is_multipart():
                         # iterate over email parts
@@ -134,6 +141,45 @@ class Email:
         imap.close()
         imap.logout()
         return mailArray
+
+    email_array = []
+
+    def checkForEmailConstantly(self, target_body=None, response_subject=None, response_body=None, returnable=False):
+        self.email_array.append(target_body)
+        self.email_array.append(response_subject)
+        self.email_array.append(response_body)
+        self.email_array.append(returnable)
+        time.sleep(0.5)
+        Thread(target=self.checkForEmailBotThread).start()
+
+    def checkForEmailBotThread(self):
+
+        target_body = self.email_array[0]
+        response_subject = self.email_array[1]
+        response_body = self.email_array[2]
+        returnable = self.email_array[3]
+
+        while True:
+            try:
+                current_mail = self.getMail()
+                sender = current_mail[0]
+                sender_subject = current_mail[1]
+                sender_body = current_mail[2]
+
+                if target_body in sender_body.lower() and sender_subject.lower() != self.temp_subject:
+                    if returnable:
+                        return True
+                    else:
+                        self.sendMail(sender, response_subject, response_body)
+                        self.sendMail(self.username, response_subject + str(random.random()), response_body)
+                        self.temp_subject = sender_subject.lower()
+                        print(f'sent message {response_subject} to {sender} on {datetime.datetime.now()}')
+            except Exception as e:
+                pass
+
+
+
+
 
 
 
