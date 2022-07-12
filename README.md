@@ -9,7 +9,7 @@ Quick and easy read and response, True/False returning, Check and Respond to Ema
 5. Click on App Passwords, select app as _other_. 
 6. Name it.
 7. After you click generate you will receive a new password.
-8. After that create a file with the contents of 'Email.py' somewhere into your folder
+8. After that place 'Email.py' into your project folder
 9. in your import statements copypaste the following:
 
 ```
