@@ -194,11 +194,11 @@ mail.sendMail("receiver@gmail.com", "hello", "this works!?")```
 
 
 
-> I recommend using an entirely new gmail account.
+#> I recommend using an entirely new gmail account.
 
 
 
-`Look here for Initial Sources:` [Reading Emails with Python](https://www.thepythoncode.com/article/reading-emails-in-python) | 
-[imaplib — IMAP4 protocol client](https://docs.python.org/3/library/imaplib.html) | 
-[email — An email and MIME handling package](https://docs.python.org/3/library/email.html) | 
-[webbrowser — Web-browser controller](https://docs.python.org/3/library/webbrowser.html)
+#`Look here for Initial Sources:` [Reading Emails with Python](https://www.thepythoncode.com/article/reading-emails-in-python) | 
+#[imaplib — IMAP4 protocol client](https://docs.python.org/3/library/imaplib.html) | 
+#[email — An email and MIME handling package](https://docs.python.org/3/library/email.html) | 
+#[webbrowser — Web-browser controller](https://docs.python.org/3/library/webbrowser.html)
