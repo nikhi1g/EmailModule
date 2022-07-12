@@ -10,12 +10,12 @@ Quick and easy read and response, True/False returning, Check and Respond to Ema
 6. Name it.
 7. After you click generate you will receive a new password.
 8. After that copy 'Email.py' somewhere into your folder
-9. in your import statements you should be able to do the following and have it work:
+9. in your import statements copypaste the following:
 
 ```
 from Email import Email
 ```
-9. last step, put in the correct user and password and it should work.
+9. in your code copypaste this and put in the correct user/password and it should work.
 ```
 mail = Email("YourEmail@gmail.com", "AppPassword")
 mail.sendMail("AnotherEmail@gmail.com", "hello", "this is a test")
