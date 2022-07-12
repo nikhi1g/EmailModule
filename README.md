@@ -1,7 +1,7 @@
 # EmailModule
 Quick and easy read and response, True/False returning, Checks and responds to Emails.
 
-
+#IMPORTANT
 ## How to Use
 On a basic level, you really just need to use 
 ```
