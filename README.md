@@ -2,6 +2,7 @@
 Quick and easy read and response, True/False returning, Check and Respond to Emails.
 
 ###### IMPORTANT FOR THIS TO WORK
+> I recommend using an entirely new gmail account, but it is not _necessary_
 1. https://myaccount.google.com/u/2/security?hl=en
 2. Turn 2-step verification on.
 3. go back to [security](https://myaccount.google.com/u/2/security?hl=en)
@@ -22,8 +23,6 @@ mail.sendMail("AnotherEmail@gmail.com", "hello", "this is a test")
 ```
 
 
-
-> I recommend using an entirely new gmail account.
 
 
 
