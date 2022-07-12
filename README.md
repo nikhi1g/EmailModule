@@ -1,7 +1,7 @@
 # EmailModule
 Quick and easy read and response, True/False returning, Checks and responds to Emails.
 
-######IMPORTANT FOR THIS TO WORK
+###### IMPORTANT FOR THIS TO WORK
 > Use an entirely new gmail account as you need to:
 
 
