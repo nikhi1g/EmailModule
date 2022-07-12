@@ -6,8 +6,10 @@ from email.header import decode_header
 import webbrowser
 import os
 import smtplib
+from email.mime.application import MIMEApplication
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from os.path import basename
 
 from bs4 import BeautifulSoup as bs
 from threading import Thread
@@ -38,35 +40,33 @@ class Email:
                 self.sendMail(self.username, response_subject + str(random.random()), response_body)
                 self.temp_subject = sender_subject.lower()
 
-    def sendMail(self, TO, subject, body):
-        FROM = self.username
+    def sendMail(self,send_to: str,subject: str, text: str,
+                  files=None):
 
-        msg = MIMEMultipart("alternative")
+        send_from = self.username
 
-        msg["From"] = FROM
+        msg = MIMEMultipart()
+        msg['From'] = send_from
+        msg['To'] = ', '.join(send_to)
+        msg['Subject'] = subject
 
-        msg["To"] = TO
+        msg.attach(MIMEText(text))
 
-        msg["Subject"] = subject
+        # was breaking earlier with only one file send
 
-        text = bs(body, "html.parser").text
+        for f in files or []:
+            with open(f, "rb") as fil:
+                ext = f.split('.')[-1:]
+                attachedfile = MIMEApplication(fil.read(), _subtype=ext)
+                attachedfile.add_header(
+                    'content-disposition', 'attachment', filename=basename(f))
+            msg.attach(attachedfile)
 
-        text_part = MIMEText(text, "plain")
-        html_part = MIMEText(body, "html")
-
-        msg.attach(text_part)
-        msg.attach(html_part)
-
-        # PUSH MAIL
-        server = smtplib.SMTP("smtp.gmail.com", 587)
-
-        server.starttls()
-
-        server.login(self.username, self.password)
-
-        server.sendmail(FROM, TO, msg.as_string())
-
-        server.quit()
+        smtp = smtplib.SMTP(host="smtp.gmail.com", port=587)
+        smtp.starttls()
+        smtp.login(self.username, self.password)
+        smtp.sendmail(send_from, send_to, msg.as_string())
+        smtp.close()
 
     def getMail(self, N=1):
         mailArray = []
@@ -176,7 +176,6 @@ class Email:
                         print(f'sent message {response_subject} to {sender} on {datetime.datetime.now()}')
             except Exception as e:
                 pass
-
 
 
 
