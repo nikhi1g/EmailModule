@@ -192,6 +192,8 @@ class Email:
 mail = Email("sender@gmail.com", "appPassword")
 mail.sendMail("receiver@gmail.com", "hello", "this works!?")```
 
+
+
 > I recommend using an entirely new gmail account.
 
 
