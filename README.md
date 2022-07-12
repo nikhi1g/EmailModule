@@ -3,7 +3,7 @@ Quick and easy read and response, True/False returning, Check and Respond to Ema
 
 ###### IMPORTANT FOR THIS TO WORK
 > I recommend using an entirely new gmail account
-1. https://myaccount.google.com/u/2/security?hl=en
+1. go to [security](https://myaccount.google.com/u/2/security?hl=en)
 2. Turn 2-step verification on.
 3. go back to [security](https://myaccount.google.com/u/2/security?hl=en)
 4. Scroll down to "Signing in to Google"
